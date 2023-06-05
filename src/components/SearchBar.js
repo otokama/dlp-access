@@ -9,27 +9,27 @@ class SearchBar extends Component {
   state = {
     field: this.props.field,
     q: this.props.q
-  };  
+  };
 
   fields = ["title", "description", "all"];
 
   fieldOptions = () => {
-    return this.fields.map(field => (
+    return this.fields.map((field) => (
       <option value={field} key={field}>
         {labelAttr(field)}
       </option>
     ));
   };
 
-  updateQuery = e => {
+  updateQuery = (e) => {
     this.setState({ q: e.target.value });
   };
 
-  updateSearchField = e => {
+  updateSearchField = (e) => {
     this.setState({ field: e.target.value });
   };
 
-  onKeyPress = e => {
+  onKeyPress = (e) => {
     if (e.which === 13) {
       this.submit();
     }
@@ -43,17 +43,13 @@ class SearchBar extends Component {
       ...this.props.filters
     };
     try {
-      if (this.props.location.pathname === "/") {
-        // window.location.href = `/search?${qs.stringify(parsedObject)}`;
-      } else {
-        this.props.navigate({
-          pathname: "/search",
-          search: `?${qs.stringify(parsedObject)}`,
-          state: parsedObject
-        });
-        if (typeof this.props.setPage === "function") {
-          this.props.setPage(0);
-        }
+      this.props.navigate({
+        pathname: "/search",
+        search: `?${qs.stringify(parsedObject)}`,
+        state: parsedObject
+      });
+      if (typeof this.props.setPage === "function") {
+        this.props.setPage(0);
       }
     } catch (err) {
       console.error(err);

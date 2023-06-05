@@ -26,7 +26,7 @@ class SearchResults extends Component {
   }
 
   updateModal() {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
         isActive: !prevState.isActive
       };
@@ -151,7 +151,6 @@ class SearchResults extends Component {
             field={this.props.field}
             q={this.props.q}
             setPage={this.props.setPage}
-            updateFormState={this.props.updateFormState}
           />
           <div className="container search-results">
             <div className="row">
