@@ -191,19 +191,6 @@ export function titleFormatted(item, category) {
   );
 }
 
-export function collectionSizeText(collection) {
-  const totalCollections = collection?.subCollection_total + 1;
-  let archives = collection?.archives?.toString() || "0";
-  return (
-    <div>
-      {totalCollections > 0 && (
-        <div id="collections-size">Collections: {totalCollections}</div>
-      )}
-      {archives > 0 && <div id="archives-size">Items: {archives}</div>}
-    </div>
-  );
-}
-
 export function addNewlineInDesc(content, headings) {
   if (!Array.isArray(headings)) {
     headings = [headings];
@@ -305,10 +292,6 @@ function textFormat(item, attr, languages, collectionCustomKey, site) {
     } else {
       return <MoreLink category={category} item={item} />;
     }
-  } else if (attr === "size") {
-    if (category === "collection") {
-      return collectionSizeText(item);
-    } else return 0;
   } else {
     return item[attr];
   }
@@ -441,7 +424,7 @@ export const RenderItems = ({ keyArray, item, languages, site }) => {
       />
     );
   });
-  return render_items;
+  return <>{render_items}</>;
 };
 
 export const RenderItemsDetailed = ({
@@ -466,5 +449,5 @@ export const RenderItemsDetailed = ({
       />
     );
   });
-  return render_items_detailed;
+  return <>{render_items_detailed}</>;
 };

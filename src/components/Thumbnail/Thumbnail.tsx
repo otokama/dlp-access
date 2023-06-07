@@ -3,18 +3,13 @@ import "../../css/Thumbnail.scss";
 import { useSignedLink } from "../../hooks/useSignedLink";
 
 type Props = {
-  imgURL: string;
-  item: {
-    thumbnail_path: string;
-    title: string;
-  };
-  site: {
-    siteId: string;
-  };
-  label: boolean;
+  imgURL?: string;
+  item: Collection | Archive;
+  site: Site;
+  label?: boolean;
   category: string;
-  className: string;
-  altText: boolean;
+  className?: string;
+  altText?: boolean;
 };
 
 export const Thumbnail: FC<Props> = ({

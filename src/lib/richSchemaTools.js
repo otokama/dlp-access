@@ -1,5 +1,28 @@
+export function findCollectionType(siteId) {
+  if (siteId === "podcasts") {
+    return "PodcastSeries";
+  } else {
+    return "Unknown";
+  }
+}
+
+export function buildCollectionSchema(item) {
+  let info = {};
+  info["creator"] = item.creator;
+  info["description"] = item.description;
+  info["thumbnail_path"] = item.thumbnail_path;
+  info["title"] = item.title;
+  info["url"] = window.location.href;
+  if (item.collectionOptions) {
+    const collectionOptions = JSON.parse(item.collectionOptions);
+    info["webFeed"] = collectionOptions.webFeed;
+  }
+
+  return info;
+}
+
 export function buildHeaderSchema(parenttype, type, id, title) {
-  const scriptContent = `{ 
+  const scriptContent = `{
       "@context": "https://schema.org",
       "@type": "${parenttype}",
       "mainEntityOfPage": {

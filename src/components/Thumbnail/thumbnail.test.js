@@ -17,11 +17,11 @@ describe("Thumbnail component", () => {
         className="card-img-top"
         item={{
           thumbnail_path: imgUrl,
-          title: "Title",
+          title: "Title"
         }}
         label={label}
         site={{
-          siteId: "default",
+          siteId: "default"
         }}
         altText={altText}
       />

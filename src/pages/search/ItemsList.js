@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ItemListView from "./ItemListView";
-import GalleryView from "./GalleryView";
+import ItemListView from "../../components/ItemListView";
+import GalleryView from "../../components/GalleryView";
 import { getCategory } from "../../lib/MetadataRenderer";
 import MasonryView from "./MasonryView";
 
@@ -22,7 +22,7 @@ class ItemsList extends Component {
         aria-label="Search results"
       >
         <div className={this.getClassName()}>
-          {this.props.items.map(item => {
+          {this.props.items.map((item) => {
             if (this.props.view === "Gallery") {
               return (
                 <GalleryView

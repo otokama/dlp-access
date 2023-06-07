@@ -18,8 +18,8 @@ import HomePage from "./pages/HomePage";
 import SiteAdmin from "./pages/admin/SiteAdmin";
 import PodcastDeposit from "./pages/admin/PodcastDeposit";
 
-import CollectionsListLoader from "./pages/collections/CollectionsListLoader";
-import CollectionsShowPage from "./pages/collections/CollectionsShowPage";
+import { BrowseCollections } from "./pages/collections/BrowseCollections";
+import { CollectionsShowPage } from "./pages/collections/CollectionsShowPage";
 
 import SearchLoader from "./pages/search/SearchLoader";
 import ArchivePage from "./pages/archives/ArchivePage";
@@ -136,7 +136,7 @@ class App extends Component {
                     path="/collections"
                     exact
                     element={
-                      <CollectionsListLoader
+                      <BrowseCollections
                         scrollUp={this.setPaginationClick.bind(this)}
                         site={this.state.site}
                       />
