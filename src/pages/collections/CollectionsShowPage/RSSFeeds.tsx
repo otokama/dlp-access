@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useSignedLink } from "../../../hooks/useSignedLink";
+import { downloadFile } from "../../../lib/fetchTools";
 
 type Props = {
   customKey: string;
@@ -130,11 +131,19 @@ export const RSSFeeds: FC<Props> = ({ customKey, site, podcast_links }) => {
           }
         })}
       {webFeed && (
-        <li className="custom-badge" key="rss">
-          <a href={webFeed} target="_blank" rel="noopener noreferrer">
+        <li key="rss">
+          <button
+            className=""
+            title="Download RSS Feed"
+            onClick={() =>
+              downloadFile(
+                `public/sitecontent/text/${site.siteId}/rss/${customKey}.rss`
+              )
+            }
+          >
             <i className="fas fa-rss"></i>
-            RSS Link
-          </a>
+            <span>RSS Feed</span>
+          </button>
         </li>
       )}
     </ul>

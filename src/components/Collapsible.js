@@ -26,11 +26,11 @@ class Collapsible extends Component {
     this.setState({ expanded: !this.state.expanded });
   }
 
-  updateFilters = filters => {
+  updateFilters = (filters) => {
     this.props.updateFormState("filters", filters);
   };
 
-  handleCheckboxChange = changeEvent => {
+  handleCheckboxChange = (changeEvent) => {
     const { name } = changeEvent.target;
     if (
       this.props.filterField === "category" ||
@@ -56,7 +56,7 @@ class Collapsible extends Component {
       ) {
         if (this.props.filters[this.props.filterField].includes(name)) {
           filterValues = this.props.filters[this.props.filterField].filter(
-            function(value) {
+            function (value) {
               return value !== name;
             }
           );
@@ -150,7 +150,7 @@ class Collapsible extends Component {
     return (
       <div className={this.props.filterField?.toLowerCase().replace(" ", "_")}>
         <div
-          onClick={e => this.togglePanel(e)}
+          onClick={(e) => this.togglePanel(e)}
           className="facet-title"
           data-cy="filter-collapsible"
         >
@@ -175,13 +175,13 @@ class Collapsible extends Component {
             >
               {this.props.facetNodes
                 .slice(0, this.partialListLength())
-                .map(value => (
+                .map((value) => (
                   <Checkbox
                     label={`${labelAttr(
                       value["label"],
                       this.props.filterField,
                       this.props.languages
-                    )} (${value["count"]})`}
+                    )} `}
                     name={value["label"]}
                     selected={value["selected"]}
                     onCheckboxChange={this.handleCheckboxChange}
@@ -190,7 +190,7 @@ class Collapsible extends Component {
                   />
                 ))}
             </div>
-            <div onClick={e => this.allLessButton(e)} className="all-less">
+            <div onClick={(e) => this.allLessButton(e)} className="all-less">
               <DisplayAllLess />
             </div>
           </div>

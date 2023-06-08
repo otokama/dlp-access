@@ -8,6 +8,7 @@ export const available_attributes = {
     "conforms_to",
     "contributor",
     "coverage",
+    "create_date",
     "created",
     "creator",
     "date",
@@ -43,6 +44,7 @@ export const available_attributes = {
   collection: [
     "size",
     "bibliographic_citation",
+    "create_date",
     "creator",
     "description",
     "display_date",

@@ -32,8 +32,10 @@ export const getFileContent = async (copyURL, type, component, attr) => {
       copyURL.indexOf("http") === 0 &&
       copyURL.indexOf(Storage._config.AWSS3.bucket) === -1
     ) {
-      stateObj[stateAttr] = copyURL;
-      component.setState(stateObj);
+      if(component) {
+        stateObj[stateAttr] = copyURL;
+        component.setState(stateObj);
+      }
       return copyURL;
     } else if (
       copyURL?.indexOf("http") === -1 &&
@@ -272,8 +274,8 @@ export const fetchSearchResults = async (
         Collections = await fetchObjects(queries.fulltextCollections, options);
         searchResults = Collections.data.fulltextCollections;
       } else {
-        Collections = await fetchObjects(queries.searchCollections, options);
-        searchResults = Collections.data.searchCollections;
+        Collections = await fetchObjects(queries.fulltextCollections, options);
+        searchResults = Collections.data.fulltextCollections;
       }
     }
   } else if (category === "archive") {
