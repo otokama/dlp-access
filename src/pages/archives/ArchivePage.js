@@ -28,6 +28,7 @@ import X3DElement from "../../components/X3DElement";
 import SocialButtons from "../../components/SocialButtons";
 import { DownloadLinks } from "../../components/DownloadLinks";
 import ReactGA from "react-ga4";
+import { getDescriptionLabel } from "../../lib/getDescriptionLabel";
 
 import "../../css/ArchivePage.scss";
 import { NotFound } from "../NotFound";
@@ -169,9 +170,7 @@ class ArchivePage extends Component {
     if (this.isMiradorURL(item.manifest_url)) {
       display = <MiradorViewer item={item} site={this.props.site} />;
     } else if (this.isMinervaURL(item.manifest_url)) {
-      display = (
-        <MinervaPlayer item={item} />
-      )
+      display = <MinervaPlayer item={item} />;
     } else if (this.isImgURL(item.manifest_url)) {
       display = (
         <Thumbnail
@@ -268,12 +267,6 @@ class ArchivePage extends Component {
     this.getArchive(this.props.customKey);
   }
 
-  getHeadings() {
-    let headings = JSON.parse(this.props.site.displayedAttributes);
-    headings = headings.archive.filter((obj) => obj.field === "description");
-    return headings.length > 0 ? headings[0].label : headings;
-  }
-
   render() {
     if (this.state.isError) {
       return <NotFound />;
@@ -341,7 +334,10 @@ class ArchivePage extends Component {
             <div className="col-lg-6 details-section-description">
               {addNewlineInDesc(
                 this.state.item?.description,
-                this.getHeadings()
+                getDescriptionLabel(
+                  JSON.parse(this.props.site.displayedAttributes),
+                  "archive"
+                )
               )}
             </div>
             <div className="col-lg-6 details-section-metadata">

@@ -10,11 +10,15 @@ interface MinervaPlayerProps {
 }
 
 declare global {
-  interface Window { viewer: any; }
+  interface Window {
+    viewer: any;
+  }
 }
 
-export const MinervaPlayer: FC<MinervaPlayerProps> = ({item}: MinervaPlayerProps): ReactElement => {
-  let display:(ReactElement);
+export const MinervaPlayer: FC<MinervaPlayerProps> = ({
+  item
+}: MinervaPlayerProps): ReactElement => {
+  let display: ReactElement;
   const location = useLocation();
   const [fullScreenViewer, setFullScreenViewer] = useState(false);
 
@@ -27,13 +31,14 @@ export const MinervaPlayer: FC<MinervaPlayerProps> = ({item}: MinervaPlayerProps
   };
 
   const setDefaultView = (event: React.SyntheticEvent): void => {
-    window.viewer.then((v:any) => {v.destroy()})
+    window.viewer.then((v: any) => {
+      v.destroy();
+    });
     const nav = document.getElementById("vt_nav");
-    nav?.classList.remove("hidden")
+    nav?.classList.remove("hidden");
 
     setFullScreenViewer(false);
   };
-
 
   const defaultView = (): ReactElement => {
     return (
@@ -45,11 +50,10 @@ export const MinervaPlayer: FC<MinervaPlayerProps> = ({item}: MinervaPlayerProps
           label={item.title}
           altText={item.title}
           category="archive"
-          site={{siteId: ""}}
+          site={{ siteId: "" } as Site}
         />
         <span id="minerva-open-dialog">
-          This record type requires a full screen image viewer. Please
-          click{" "}
+          This record type requires a full screen image viewer. Please click{" "}
           <Link to={location.pathname} onClick={setFullScreenView}>
             here
           </Link>{" "}
@@ -59,16 +63,15 @@ export const MinervaPlayer: FC<MinervaPlayerProps> = ({item}: MinervaPlayerProps
     );
   };
 
-
-  const fullScreenView = (): ReactElement  => {
+  const fullScreenView = (): ReactElement => {
     const customStyles = {
       content: {
-        display: 'block',
-        top: '0px',
-        left: '0px',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'black',
+        display: "block",
+        top: "0px",
+        left: "0px",
+        width: "100%",
+        height: "100%",
+        backgroundColor: "black",
         zIndex: 10000
       }
     };
@@ -78,19 +81,20 @@ export const MinervaPlayer: FC<MinervaPlayerProps> = ({item}: MinervaPlayerProps
         onAfterOpen={initializeMinerva}
         style={customStyles}
         contentLabel="Minerva Modal"
-        appElement={document.getElementById('fullScreenWrapper') as HTMLElement}
+        appElement={document.getElementById("fullScreenWrapper") as HTMLElement}
       >
         <>
           <div id="minerva-browser"></div>
           <span id="minerva-browser-closer">
-            <Link to={location.pathname} onClick={setDefaultView}>Return to metadata view</Link>
+            <Link to={location.pathname} onClick={setDefaultView}>
+              Return to metadata view
+            </Link>
           </span>
         </>
       </Modal>
     );
   };
 
-  
   const initializeMinerva = () => {
     try {
       window.viewer = MinervaStory.build_page({
@@ -100,7 +104,7 @@ export const MinervaPlayer: FC<MinervaPlayerProps> = ({item}: MinervaPlayerProps
         embedded: true
       });
     } catch (error) {
-      console.log("error rendering Minerva")
+      console.log("error rendering Minerva");
     }
   };
 
@@ -109,6 +113,6 @@ export const MinervaPlayer: FC<MinervaPlayerProps> = ({item}: MinervaPlayerProps
   } else {
     display = defaultView();
   }
-  
+
   return <div>{display}</div>;
 };

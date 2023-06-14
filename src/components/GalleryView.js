@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { arkLinkFormatted } from "../../lib/MetadataRenderer";
-import { Thumbnail } from "../../components/Thumbnail";
-import { cleanHTML } from "../../lib/MetadataRenderer";
-import "../../css/SearchResult.scss";
+import { arkLinkFormatted } from "../lib/MetadataRenderer";
+import { Thumbnail } from "./Thumbnail";
+import { cleanHTML } from "../lib/MetadataRenderer";
+import "../css/SearchResult.scss";
 
-const GalleryView = props => {
+const GalleryView = (props) => {
   return (
     <div className="col-md-6 col-lg-4 gallery-item">
       <div className="card">

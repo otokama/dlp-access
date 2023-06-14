@@ -487,3 +487,65 @@ export const getCollectionByIdentifier = async (identifier) => {
   const collection = items[0];
   return collection;
 };
+
+export const getCollectionItems = async (
+  collectionID,
+  sort_order,
+  limit,
+  nextToken
+) => {
+  const queryGetCollectionItems = `query SearchCollectionItems(
+    $parent_id: String!
+    $limit: Int
+    $sort_order: SearchableSortDirection
+    $nextToken: String
+  ) {
+  searchArchives(
+    filter: {
+      heirarchy_path: { eq: $parent_id },
+      visibility: { eq: true }
+    },
+    sort: {
+      field: identifier
+      direction: $sort_order
+    },
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      title
+      thumbnail_path
+      custom_key
+      identifier
+      description
+      tags
+      creator
+    }
+    total
+    nextToken
+  }
+}`;
+  const items = await API.graphql(
+    graphqlOperation(queryGetCollectionItems, {
+      parent_id: collectionID,
+      limit: limit,
+      sort_order: sort_order,
+      nextToken: nextToken
+    })
+  );
+  return items.data.searchArchives;
+};
+
+export const getCollectionMap = async (mapIdentifier) => {
+  try {
+    const response = await API.graphql(
+      graphqlOperation(queries.getCollectionmap, {
+        id: mapIdentifier
+      })
+    );
+    return response.data.getCollectionmap.map_object;
+  } catch (error) {
+    console.error("Error fetching collection tree map");
+  }
+  return null;
+};

@@ -35,7 +35,7 @@ class SocialButtons extends Component {
   };
 
   getButtons = () => {
-    let buttons = this.props.buttons.socialMedia.map(item => {
+    let buttons = this.props.buttons.map((item) => {
       const Tag = this.shareButtons[item];
       const Icon = this.shareIcons[item];
       return (
@@ -54,9 +54,7 @@ class SocialButtons extends Component {
   };
 
   render() {
-    return this.props.buttons &&
-      this.props.buttons.socialMedia &&
-      this.props.buttons.socialMedia.length ? (
+    return this.props.buttons && this.props.buttons.length ? (
       <div className="social-buttons-section">
         <div className="line"></div>
         <h3 className={this.props.viewOption === "list" ? "d-none" : ""}>
