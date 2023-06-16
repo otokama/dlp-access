@@ -4,9 +4,14 @@ import MinervaStory from "minerva-browser";
 import { Thumbnail } from "../Thumbnail";
 import { Link, useLocation } from "react-router-dom";
 import Modal from "react-modal";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowUpRightFromSquare,
+  faXmark
+} from "@fortawesome/free-solid-svg-icons";
 interface MinervaPlayerProps {
-  item: any;
+  item: Archive;
+  site: Site;
 }
 
 declare global {
@@ -15,9 +20,7 @@ declare global {
   }
 }
 
-export const MinervaPlayer: FC<MinervaPlayerProps> = ({
-  item
-}: MinervaPlayerProps): ReactElement => {
+export const MinervaPlayer: FC<MinervaPlayerProps> = ({ item, site }) => {
   let display: ReactElement;
   const location = useLocation();
   const [fullScreenViewer, setFullScreenViewer] = useState(false);
@@ -42,23 +45,18 @@ export const MinervaPlayer: FC<MinervaPlayerProps> = ({
 
   const defaultView = (): ReactElement => {
     return (
-      <div>
-        <Thumbnail
-          item={item}
-          imgURL={item.thumbnail_path}
-          className={"minerva-thumbnail"}
-          label={item.title}
-          altText={item.title}
-          category="archive"
-          site={{ siteId: "" } as Site}
-        />
-        <span id="minerva-open-dialog">
-          This record type requires a full screen image viewer. Please click{" "}
-          <Link to={location.pathname} onClick={setFullScreenView}>
-            here
-          </Link>{" "}
-          to open the viewer.
-        </span>
+      <div className="minerva-image-wrapper">
+        <Link to={location.pathname} onClick={setFullScreenView}>
+          <Thumbnail item={item} altText={true} site={site} />
+          <span className="visually-hidden">Opens fullscreen viewer</span>
+        </Link>
+        <div id="minerva-open-dialog">
+          <p>This record type requires a full screen image viewer.</p>
+          <button onClick={setFullScreenView}>
+            Open Viewer
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+          </button>
+        </div>
       </div>
     );
   };
@@ -86,9 +84,10 @@ export const MinervaPlayer: FC<MinervaPlayerProps> = ({
         <>
           <div id="minerva-browser"></div>
           <span id="minerva-browser-closer">
-            <Link to={location.pathname} onClick={setDefaultView}>
-              Return to metadata view
-            </Link>
+            <button onClick={setDefaultView}>
+              Close Viewer
+              <FontAwesomeIcon icon={faXmark} />
+            </button>
           </span>
         </>
       </Modal>

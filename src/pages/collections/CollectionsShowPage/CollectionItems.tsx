@@ -70,7 +70,7 @@ export const CollectionItems: FC<Props> = ({
                 <div key={item.identifier} className="collection-entry">
                   <Link to={`/archive/${arkLinkFormatted(item.custom_key)}`}>
                     <div className="collection-img">
-                      <Thumbnail item={item} site={site} category="archive" />
+                      <Thumbnail item={item} site={site} />
                     </div>
                     <div className="collection-details">
                       <h3>{item.title}</h3>
@@ -92,7 +92,7 @@ export const CollectionItems: FC<Props> = ({
                   <div className="collection-item-wrapper">
                     <Link to={`/archive/${arkLinkFormatted(item.custom_key)}`}>
                       <div className="item-image">
-                        <Thumbnail item={item} site={site} category="archive" />
+                        <Thumbnail item={item} site={site} />
                       </div>
                       <div className="item-info">
                         <h3>{item.title}</h3>

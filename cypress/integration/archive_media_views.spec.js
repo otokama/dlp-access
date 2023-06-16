@@ -67,11 +67,11 @@ describe("archive_media_views: Archive Mirador viewer", () => {
 describe('archive_media_views: Archive Minerva viewer', () => {
   it('renders viewer if exhibit.json', () => {
     cy.visit('/archive/s253n52s').wait(2000);
-    cy.get('span#minerva-open-dialog')
+    cy.get('div#minerva-open-dialog')
       .eq(0)
       .should('be.visible')
-      .should('contain', "This record type requires a full screen image viewer. Please click")
-    cy.get('span#minerva-open-dialog > a')
+      .should('contain', "This record type requires a full screen image viewer.")
+    cy.get('div#minerva-open-dialog > button')
       .click({force: true})
     cy.get("div.minerva-root")
       .eq(0)

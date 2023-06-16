@@ -7,7 +7,6 @@ describe("Thumbnail component", () => {
   const setup = (
     category = "archive",
     imgUrl = "https://img.cloud.lib.vt.edu/iawa/Ms1990_025_Rudoff/Ms1990_025_Box1/Ms1990_025_Box1_Folder1/tiles/Ms1990_025_Per_Ms_B001_F001_002-1/full/193,/0/default.jpg",
-    label = true,
     altText = false
   ) => {
     jest.spyOn(FunctionalFileGetter, "getFile").mockResolvedValue(imgUrl);
@@ -19,7 +18,6 @@ describe("Thumbnail component", () => {
           thumbnail_path: imgUrl,
           title: "Title"
         }}
-        label={label}
         site={{
           siteId: "default"
         }}
@@ -40,13 +38,13 @@ describe("Thumbnail component", () => {
   });
 
   it("displays no label", async () => {
-    setup(undefined, undefined, false);
+    setup(null);
     const label = await waitFor(() => screen.queryByRole("paragraph"));
     expect(label).toBeNull();
   });
 
   it("populates alternative text", async () => {
-    setup(undefined, undefined, undefined, true);
+    setup(undefined, undefined, true);
     expect(await screen.findByAltText("Title")).toBeInTheDocument();
   });
 

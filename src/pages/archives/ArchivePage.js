@@ -170,7 +170,7 @@ class ArchivePage extends Component {
     if (this.isMiradorURL(item.manifest_url)) {
       display = <MiradorViewer item={item} site={this.props.site} />;
     } else if (this.isMinervaURL(item.manifest_url)) {
-      display = <MinervaPlayer item={item} />;
+      display = <MinervaPlayer item={item} site={this.props.site} />;
     } else if (this.isImgURL(item.manifest_url)) {
       display = (
         <Thumbnail
