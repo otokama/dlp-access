@@ -35,7 +35,7 @@ class SearchLoader extends Component {
         {
           [name]: val
         },
-        function() {
+        function () {
           this.loadItems();
         }
       );
@@ -60,7 +60,7 @@ class SearchLoader extends Component {
 
     for (const key of Object.keys(searchQuery)) {
       if (Array.isArray(searchQuery[key])) {
-        searchQuery[key].forEach(val => {
+        searchQuery[key].forEach((val) => {
           searchParams.append(key, val);
         });
       } else {
@@ -75,7 +75,7 @@ class SearchLoader extends Component {
       {
         page: this.state.page - 1
       },
-      function() {
+      function () {
         this.loadItems();
         this.scrollUp();
       }
@@ -87,7 +87,7 @@ class SearchLoader extends Component {
       {
         page: this.state.page + 1
       },
-      function() {
+      function () {
         this.loadItems();
         this.scrollUp();
       }
@@ -98,7 +98,7 @@ class SearchLoader extends Component {
       {
         page: page
       },
-      function() {
+      function () {
         this.loadItems();
       }
     );
@@ -116,7 +116,7 @@ class SearchLoader extends Component {
         limit: parseInt(result.value),
         page: 0
       },
-      function() {
+      function () {
         this.loadItems();
       }
     );
@@ -177,9 +177,10 @@ class SearchLoader extends Component {
   componentDidUpdate(prevProps) {
     if (
       this.props.location.pathname !== prevProps.location.pathname ||
-      this.props.location.key !== prevProps.location.key) {
-        fetchLanguages(this, this.props.site, "name", this.loadItems);
-      }
+      this.props.location.key !== prevProps.location.key
+    ) {
+      fetchLanguages(this, this.props.site, "name", this.loadItems);
+    }
   }
 
   componentDidMount() {
@@ -189,14 +190,6 @@ class SearchLoader extends Component {
   render() {
     if (this.state.items !== null) {
       let searchPageInfo = JSON.parse(this.props.site.searchPage);
-      var facetsData = [];
-      Object.keys(searchPageInfo.facets).forEach(function(key) {
-        var value = searchPageInfo.facets[key];
-        value["name"] = key;
-        facetsData.push(value);
-      });
-
-      facetsData = facetsData.sort((a, b) => a.label.localeCompare(b.label));
 
       return (
         <div>
@@ -217,7 +210,7 @@ class SearchLoader extends Component {
             q={this.state.q}
             view={this.state.view}
             updateFormState={this.updateFormState}
-            searchFacets={facetsData}
+            searchFacets={searchPageInfo.facets}
             searchSorts={searchPageInfo.sort}
           />
         </div>

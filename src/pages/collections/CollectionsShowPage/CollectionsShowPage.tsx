@@ -24,6 +24,7 @@ export const CollectionsShowPage: FC<Props> = ({ site, customKey }) => {
   const [titleList, setTitleList] = useState([]);
   const options = site?.siteOptions && JSON.parse(site.siteOptions);
   const viewOption = options?.collectionPageSettings?.viewOption;
+  const socialButtons = options?.socialMedia;
 
   const {
     collection,
@@ -117,6 +118,7 @@ export const CollectionsShowPage: FC<Props> = ({ site, customKey }) => {
             metadataTitle={metadataTitle()}
             collectionCustomKey={collectionCustomKey}
             viewOption={viewOption}
+            socialButtons={socialButtons}
             title={title}
             media={thumbnail_path}
             hasParentCollection={!!collection.parent_collection}
@@ -126,9 +128,7 @@ export const CollectionsShowPage: FC<Props> = ({ site, customKey }) => {
             <div className="row justify-content-end">
               <div className="social-buttons-wrapper-line col-12 col-md-8">
                 <SocialButtons
-                  buttons={
-                    site.siteOptions ? JSON.parse(site.siteOptions) : null
-                  }
+                  buttons={socialButtons}
                   url={window.location.href}
                   title={title}
                   media={thumbnail_path}

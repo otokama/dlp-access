@@ -4,7 +4,7 @@ import qs from "query-string";
 import ResultsNumberDropdown from "../../components/ResultsNumberDropdown";
 import Pagination from "../../components/Pagination";
 import SearchBar from "../../components/SearchBar";
-import SearchFacets from "./SearchFacets";
+import { SearchFacets } from "./SearchFacets";
 import ViewBar from "../../components/ViewBar";
 import SortbyDropdown from "../../components/SortbyDropdown";
 import ItemsList from "./ItemsList";
@@ -22,16 +22,15 @@ class SearchResults extends Component {
       languages: null,
       isActive: false
     };
-    this.updateModal = this.updateModal.bind(this);
   }
 
-  updateModal() {
+  updateModal = () => {
     this.setState((prevState) => {
       return {
         isActive: !prevState.isActive
       };
     });
-  }
+  };
 
   componentDidMount() {
     fetchLanguages(this, this.props.site, "abbr");
@@ -92,7 +91,9 @@ class SearchResults extends Component {
                       return (
                         <div key={`${idx}_${val}`} role="row">
                           <div role="gridcell" tabIndex="-1">
-                            <span className="facet-navbar-name">{key}</span>
+                            <span className="facet-navbar-name">
+                              {this.props.searchFacets[key].label}
+                            </span>
                             <span className="facet-navbar-arrow">
                               <i className="fas fa-angle-right"></i>
                             </span>

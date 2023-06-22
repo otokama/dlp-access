@@ -139,8 +139,9 @@ span.creator:after {
 
 .feed-links a:hover,
 .feed-link a:active,
-.feed-links a:focus {
-  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.4);
+.feed-links a:focus,
+.feed-links button:hover {
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.4);
 }
 
 .feed-links .custom-badge a {
@@ -164,6 +165,22 @@ span.creator:after {
 .feed-links .custom-badge a:focus,
 .feed-links .custom-badge a:active {
   text-decoration: none;
+}
+
+.feed-links button {
+  color: var(--hokieMaroon);
+  background-color: var(--light-gray);
+  font-family: "gineso-condensed", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  border: 1px solid var(--dark-gray);
+  border-radius: 10px;
+}
+
+.feed-links button span {
+  margin-left: 5px;
 }
 
 .mid-content-row.row {

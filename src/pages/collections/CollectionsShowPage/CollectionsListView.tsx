@@ -10,6 +10,7 @@ type Props = {
   metadataTitle: string;
   collectionCustomKey: string;
   viewOption: string;
+  socialButtons?: string[];
   title: string;
   media: string;
   hasParentCollection: boolean;
@@ -20,14 +21,13 @@ export const CollectionsListView: FC<Props> = ({
   metadataTitle,
   collectionCustomKey,
   viewOption,
+  socialButtons,
   title,
   media,
   hasParentCollection
 }) => {
   const [isSocialActive, setIsSocialActive] = useState(true);
   const [isMetadataActive, setIsMetadataActive] = useState(true);
-  const options = site?.siteOptions && JSON.parse(site.siteOptions);
-  const socialButtons = options?.socialMedia;
 
   //Closes accordion sections on mobile screens and
   //opens them on larger screens
@@ -48,7 +48,7 @@ export const CollectionsListView: FC<Props> = ({
   return (
     <div className="mid-content-row list-view row">
       <div className="col-12 col-lg-4 mb-5">
-        {socialButtons?.length && (
+        {socialButtons?.length ? (
           <div className="social-buttons-wrapper-box">
             <Accordion>
               <Accordion.Title
@@ -72,6 +72,8 @@ export const CollectionsListView: FC<Props> = ({
               </Accordion.Content>
             </Accordion>
           </div>
+        ) : (
+          <></>
         )}
         <Accordion>
           <Accordion.Title
