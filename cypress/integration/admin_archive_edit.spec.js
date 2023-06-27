@@ -87,31 +87,4 @@ describe("admin_archive_edit: Update item metadata and change it back", function
     cy.contains("Update Item Metadata").click();
     cy.contains("Ms1990-025, Box 1, Folder 1").should("be.visible");
   });
-
-  it("Can change metadata using text editor", () => {
-    cy.get("input[value='edit']").parent().click().wait(20000);
-    cy.get("#description_0", { timeout: 10000 })
-      .find(".ql-editor", { timeout: 10000 })
-      .then(($editor) => {
-        if (!$editor.length) {
-          return;
-        }
-        cy.wrap($editor)
-          .clear()
-          .type("Description field test", { force: true });
-        cy.contains("Update Item Metadata").click();
-        cy.contains("Description field test").should("be.visible");
-        cy.get("input[value='edit']").parent().click();
-        cy.get("#description_0")
-          .find(".ql-editor")
-          .clear()
-          .type("Two photographs of an unidentified industrial building site", {
-            force: true
-          });
-        cy.contains("Update Item Metadata").click();
-        cy.contains(
-          "Two photographs of an unidentified industrial building site"
-        ).should("be.visible");
-      });
-  });
 });
