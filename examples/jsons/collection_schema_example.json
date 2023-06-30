@@ -1,10 +1,6 @@
 {
  "id": "84f616e8-cc3f-49b1-8063-5f0a1ea6b8b3",
- "belongs_to": [
-  "this is a string"
- ],
- "bibliographic_citation": "this is a string",
- "circa": "this is a string",
+ "bibliographic_citation": ["this is a string"],
  "collection_category": "this is a string",
  "collectionmap_id": "this is a string",
  "collectionOptions": {
@@ -22,22 +18,19 @@
  "description": [
    "this is a string"
  ],
- "display_date": "this is a string",
+ "display_date": ["this is a string"],
  "end_date": "this is a string",
  "explicit_content": false,
  "heirarchy_path": [
   "this is a string"
  ],
  "identifier": "this_is_a_string",
+ "is_part_of": [
+   "this is a string"
+  ],
  "language": [
   "this is a string"
  ],
- "location": [
-    "this is a string"
- ],
- "spatial": [
-   "this is a string"
-],
  "modified_date": "this is a string",
  "ownerinfo": {
   "email": "this is a string",
@@ -49,14 +42,17 @@
  "provenance": [
     "this is a string"
  ],
- "related_url": [
+ "relation": [
   "this is a string"
  ],
- "rights_holder": "this is a string",
- "rights_statement": "this is a string",
+ "rights_holder": ["this is a string"],
+ "rights": ["this is a string"],
  "source": [
     "this is a string"
  ],
+ "spatial": [
+   "this is a string"
+],
  "start_date": "this is a string",
  "subject": [
     "this is a string"

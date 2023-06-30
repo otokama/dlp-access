@@ -16,11 +16,7 @@
   "sourceText": "this is a string"
  },
  "basis_of_record": ["this is a string"],
- "belongs_to": [
-  "this is a string"
- ],
- "bibliographic_citation": "this is a string",
- "circa": "this is a string",
+ "bibliographic_citation": ["this is a string"],
  "collection": "this is a string",
  "conforms_to": ["this is a string"],
  "contributor": [
@@ -38,10 +34,10 @@
  "description": [
     "this is a string"
  ],
- "display_date": "this is a string",
+ "display_date": ["this is a string"],
  "end_date": "this is a string",
  "explicit": false,
- "extent": "this is a string",
+ "extent": ["this is a string"],
  "format": [
   "this is a string"
  ],
@@ -53,15 +49,13 @@
  ],
  "identifier": "this_is_a_string",
  "is_format_of": ["this is a string"],
+ "belongs_to": ["this is a string"],
  "is_version_of": ["this is a string"],
  "item_category": "Default",
  "language": [
   "en"
  ],
  "license": ["this is a string"],
- "location": [
-  "this is a string"
- ],
  "manifest_file_characterization": {
   "duration": "this is a string",
   "name": "this is a string",
@@ -81,23 +75,23 @@
   "this is a string"
  ],
  "publisher": ["this is a string"],
- "reference": [
+ "references": [
   "this is a string"
  ],
- "related_url": [
+ "relation": [
   "this is a string"
  ],
  "repository": [
   "this is a string"
  ],
- "resource_type": [
-  "this is a string"
- ],
- "rights_holder": "this is a string",
- "rights_statement": "this is a string",
+ "rights_holder": ["this is a string"],
+ "rights": ["this is a string"],
  "source": [
   "this is a string"
  ],
+ "spatial": [
+   "this is a string"
+],
  "start_date": "this is a string",
  "subject": [
   "this is a string"
@@ -108,6 +102,10 @@
  "temporal": ["this is a string"],
  "thumbnail_path": "this is a string",
  "title": "this is a string",
+ "type": [
+   "this is a string"
+],
  "updatedAt": "2021-01-19T02:27:02.510Z",
- "visibility": false
+ "visibility": false,
+ "__typename": "Archive"
 }
