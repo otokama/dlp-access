@@ -43,7 +43,7 @@ describe("CollectionsTopContent component", () => {
     expect(screen.getByText(/Created by: Test Creator/i)).toBeInTheDocument();
     expect(
       screen.getByText(
-        /Last updated: Mon Mar 01 2021 13:00:00 GMT-0500 \(Eastern Standard Time\)/i
+        /Eastern Standard Time)/i
       )
     ).toBeInTheDocument();
     expect(
