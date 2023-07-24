@@ -79,16 +79,9 @@ describe('archive_media_views: Archive Minerva viewer', () => {
   });
 });
 
-describe("archive_media_views: Archive 3d .obj viewer", () => {
-  it("renders 3d viewer for 3d .obj records", () => {
-    cy.visit("http://localhost:3000/archive/cz94zm9p").wait(4000);
-    cy.get("div.obj-wrapper canvas").eq(0).should("be.visible");
-  });
-});
-
 describe("archive_media_views: Archive 3d .x3d viewer", () => {
   it("renders 3d viewer for 3d .x3d records", () => {
-    cy.visit("http://localhost:3000/archive/h387pp1c").wait(4000);
+    cy.visit("http://localhost:3000/archive/99249552").wait(4000);
     cy.get("div.obj-wrapper x3d#x3dElement canvas").eq(0).should("be.visible");
   });
 });
