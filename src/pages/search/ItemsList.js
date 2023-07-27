@@ -29,7 +29,6 @@ class ItemsList extends Component {
                   key={item.id}
                   item={item}
                   category={getCategory(item)}
-                  label={true}
                   site={this.props.site}
                 />
               );
@@ -39,7 +38,6 @@ class ItemsList extends Component {
                   key={item.id}
                   item={item}
                   category={getCategory(item)}
-                  label={true}
                   site={this.props.site}
                 />
               );
@@ -49,7 +47,6 @@ class ItemsList extends Component {
                   key={item.id}
                   item={item}
                   category={getCategory(item)}
-                  label={true}
                   site={this.props.site}
                 />
               );

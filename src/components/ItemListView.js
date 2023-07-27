@@ -35,7 +35,6 @@ class ItemListView extends Component {
               <Thumbnail
                 item={this.props.item}
                 category={this.props.category}
-                label={this.props.label}
                 site={this.props.site}
               />
             </div>

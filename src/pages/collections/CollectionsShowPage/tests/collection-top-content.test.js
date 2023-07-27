@@ -42,9 +42,7 @@ describe("CollectionsTopContent component", () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/Created by: Test Creator/i)).toBeInTheDocument();
     expect(
-      screen.getByText(
-        /Eastern Standard Time)/i
-      )
+      screen.getByText(/Last updated:/i)
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: "Description" })

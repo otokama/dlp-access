@@ -16,7 +16,6 @@ const GalleryView = (props) => {
             item={props.item}
             category={props.category}
             className="card-img-top"
-            label={props.label}
             site={props.site}
           />
         </NavLink>

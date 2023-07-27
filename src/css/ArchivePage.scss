@@ -146,3 +146,69 @@ div.obj-wrapper {
   font-weight: 600;
   padding: 5px 10px;
 }
+
+div.minerva-image-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+div.minerva-image-wrapper a {
+  width: 100%;
+}
+
+div.minerva-image-wrapper div.image-container {
+  width: 100%;
+  position: static;
+  border: none;
+}
+
+div.minerva-image-wrapper div.image-container img {
+  display: block;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  div.minerva-image-wrapper div.image-container img {
+    max-width: 50%;
+  }
+}
+
+div.minerva-image-wrapper #minerva-open-dialog {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  text-align: center;
+}
+
+#minerva-browser-closer button {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}
+
+div.minerva-image-wrapper #minerva-open-dialog button,
+#minerva-browser-closer button {
+  color: white;
+  background-color: var(--hokieMaroon);
+  font-family: "Acherus", sans-serif;
+  font-weight: 600;
+  padding: 7px 15px;
+  font-size: 1.2rem;
+  border: none;
+}
+
+div.minerva-image-wrapper #minerva-open-dialog svg,
+#minerva-browser-closer svg {
+  padding-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+div.minerva-image-wrapper #minerva-open-dialog button:hover,
+#minerva-browser-closer button:hover {
+  background-color: var(--hokieMaroonHover);
+}
