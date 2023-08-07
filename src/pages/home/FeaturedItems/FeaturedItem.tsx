@@ -35,6 +35,7 @@ export const FeaturedItem: FC<Props> = ({
       aria-roledescription="slide"
       aria-label={`${position} of ${length}`}
       style={style}
+      key={item.src}
     >
       <a href={item.link}>
         <div className="card">

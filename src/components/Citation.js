@@ -35,6 +35,7 @@ class Citation extends Component {
       }
     }));
     const redirect = this.redirect_url();
+    const persistent_url = `${redirect}/${this.props.item.custom_key}`;
 
     return (
       <div aria-label="Item Citation" className="citation-section">
@@ -60,7 +61,7 @@ class Citation extends Component {
           </div>
           <div className="link-text">
             {parse(
-              `<a href="${redirect}/${this.props.item.custom_key}">${redirect}/${this.props.item.custom_key}</a>`
+              `<a href="${persistent_url}">${persistent_url}</a>`
             )}
           </div>
         </div>

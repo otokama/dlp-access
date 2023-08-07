@@ -79,7 +79,7 @@ export const FeaturedItems: FC<Props> = ({ featuredItems, site }) => {
         {featuredItems.map((item, index) => {
           return (
             <FeaturedItem
-              key={item.src}
+              key={index}
               item={item}
               position={startIndex + index + 1}
               length={featuredItems.length}
