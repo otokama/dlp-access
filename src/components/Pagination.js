@@ -10,7 +10,7 @@ class Pagination extends Component {
 
   upperBound() {
     const lower = this.lowerBound();
-    const num = lower + this.props.numResults - 1;
+    const num = Math.min(lower + this.props.numResults - 1, this.props.total);
     return num !== lower ? `- ${num}` : "";
   }
 

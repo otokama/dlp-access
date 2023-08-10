@@ -1,4 +1,4 @@
-import React, { FC, EventHandler } from "react";
+import { FC, EventHandler, useEffect, useState } from "react";
 import SiteTitle from "../../../components/SiteTitle";
 import ItemListView from "../../../components/ItemListView";
 import GalleryView from "../../../components/GalleryView";
@@ -10,7 +10,7 @@ import ViewBar from "../../../components/ViewBar";
 
 import "../../../css/ListPages.scss";
 import "../../../css/CollectionsListPage.scss";
-import { useLoadCollections } from "./useLoadCollections";
+import { loadCollections } from "./loadCollections";
 import { useView } from "./useView";
 
 type Props = {
@@ -22,22 +22,64 @@ export const BrowseCollections: FC<Props> = ({ scrollUp, site }) => {
   const browseCollections =
     site?.browseCollections && JSON.parse(site.browseCollections);
 
-  const {
-    collections,
-    total,
-    totalPages,
-    page,
-    limit,
-    handleFilterDropdown,
-    handleSortbyDropdown,
-    handleResultsNumberDropdown
-  } = useLoadCollections({ scrollUp });
-
   const { view, handleSetView } = useView();
+  const [collections, setCollections]:any = useState(null);
+  const [pg, setPg] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [totalPages,setTotalPages] = useState(1);
+  const [limt, setLimit] = useState(10);
+  const [filtr, setFilter]:any = useState({});
+  const [tokns, setTokns]:any = useState([]);
+  const [sort, setSort]:any = useState({
+    field: "title",
+    direction: "asc"
+  });
+  
+  const setCollectionDetails = async () => {
+    const {
+      collections,
+      total,
+      totalPages,
+      page,
+      limit,
+      nextTokens
+    } =  await loadCollections({ pg, filtr, sort, limt, tokns, scrollUp });
+    setCollections(collections);
+    setTotal(total);
+    setTotalPages(totalPages);
+    setPg(page);
+    setLimit(limit);
+    setTokns(nextTokens);
+  }
+
+  useEffect(() => {
+    setCollectionDetails();
+  }, [pg, filtr, sort, limt]);
 
   if (!site || !browseCollections) {
     return null;
   }
+
+  const handlePreviousPageClick = () => {
+    setPg(Math.max(pg - 1, 0));
+  };
+
+  const handleNextPageClick = () => {
+    setPg(Math.min(pg + 1, totalPages));
+  };
+
+  const handleFilterDropdown = (_: string, val: any) => {
+    setFilter(val);
+  };
+
+  const handleSortbyDropdown = (_: string, val: any) => {
+    setSort(val);
+  };
+
+  const handleResultsNumberDropdown = (e: Event, result: { value: number }) => {
+    setLimit(result.value);
+    setPg(0)
+  };
 
   return (
     <div>
@@ -86,7 +128,7 @@ export const BrowseCollections: FC<Props> = ({ scrollUp, site }) => {
                 role="region"
                 aria-label="Browse results"
               >
-                {collections.map((collection) => {
+                {collections?.map((collection:Collection) => {
                   if (view === "Gallery") {
                     return (
                       <GalleryView
@@ -114,10 +156,10 @@ export const BrowseCollections: FC<Props> = ({ scrollUp, site }) => {
                 <Pagination
                   numResults={collections.length}
                   total={total}
-                  page={page}
-                  limit={limit}
-                  previousPage={() => page - 1}
-                  nextPage={() => page + 1}
+                  page={pg}
+                  limit={limt}
+                  previousPage={handlePreviousPageClick}
+                  nextPage={handleNextPageClick}
                   totalPages={totalPages}
                   isSearch={false}
                   atBottom={true}
