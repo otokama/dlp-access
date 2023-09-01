@@ -22,9 +22,9 @@
           ],
           "defaultAuthentication": {
             "apiKeyConfig": {
-              "apiKeyExpirationDate": "2022-08-11T15:26:27.165Z",
-              "apiKeyExpirationDays": 365,
-              "description": ""
+              "apiKeyExpirationDate": "2024-08-30T15:09:30.861Z",
+              "apiKeyExpirationDays": 364,
+              "description": "prodt"
             },
             "authenticationType": "API_KEY"
           }
@@ -47,6 +47,24 @@
           "triggerProvider": "Cognito"
         }
       ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
     },
@@ -94,29 +112,7 @@
   },
   "storage": {
     "Collectionmap": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "iawav2658176f3"
-        },
-        {
-          "attributes": [
-            "AdminGroupRole"
-          ],
-          "category": "auth",
-          "resourceName": "userPoolGroups"
-        },
-        {
-          "attributes": [
-            "EditorGroupRole"
-          ],
-          "category": "auth",
-          "resourceName": "userPoolGroups"
-        }
-      ],
+      "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"
     }

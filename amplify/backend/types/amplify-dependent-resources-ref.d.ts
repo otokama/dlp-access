@@ -10,22 +10,23 @@ export type AmplifyDependentResourcesAttributes = {
     "iawav2658176f3": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
-      "AppClientSecret": "string",
+      "CreatedSNSRole": "string",
       "IdentityPoolId": "string",
       "IdentityPoolName": "string",
+      "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
     },
     "userPoolGroups": {
-      "AdminGroupRole": "string",
-      "DefaultGroupRole": "string",
-      "EditorGroupRole": "string",
-      "IAWAGroupRole": "string",
-      "SWVAGroupRole": "string",
-      "SiteAdminGroupRole": "string",
+      "adminGroupRole": "string",
+      "defaultGroupRole": "string",
+      "editorGroupRole": "string",
       "federatedGroupRole": "string",
       "hokiesGroupRole": "string",
+      "iawaGroupRole": "string",
       "podcastsGroupRole": "string",
+      "siteadminGroupRole": "string",
+      "swvaGroupRole": "string",
       "testGroupRole": "string"
     }
   },
