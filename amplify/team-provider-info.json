@@ -1,4 +1,4 @@
-{ 
+{
   "preview": {
     "awscloudformation": {
       "AuthRoleName": "amplify-dlpdev-preview-161516-authRole",
