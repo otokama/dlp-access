@@ -78,10 +78,12 @@ export const createCollection = /* GraphQL */ `
           createdAt
           updatedAt
           collectionCollectionmapId
+          __typename
         }
         createdAt
         updatedAt
         collectionmapCollectionId
+        __typename
       }
       archives {
         items {
@@ -142,12 +144,15 @@ export const createCollection = /* GraphQL */ `
           updatedAt
           collectionArchivesId
           archiveCollectionId
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
       collectionCollectionmapId
+      __typename
     }
   }
 `;
@@ -228,10 +233,12 @@ export const updateCollection = /* GraphQL */ `
           createdAt
           updatedAt
           collectionCollectionmapId
+          __typename
         }
         createdAt
         updatedAt
         collectionmapCollectionId
+        __typename
       }
       archives {
         items {
@@ -292,12 +299,15 @@ export const updateCollection = /* GraphQL */ `
           updatedAt
           collectionArchivesId
           archiveCollectionId
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
       collectionCollectionmapId
+      __typename
     }
   }
 `;
@@ -378,10 +388,12 @@ export const deleteCollection = /* GraphQL */ `
           createdAt
           updatedAt
           collectionCollectionmapId
+          __typename
         }
         createdAt
         updatedAt
         collectionmapCollectionId
+        __typename
       }
       archives {
         items {
@@ -442,12 +454,15 @@ export const deleteCollection = /* GraphQL */ `
           updatedAt
           collectionArchivesId
           archiveCollectionId
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
       collectionCollectionmapId
+      __typename
     }
   }
 `;
@@ -504,17 +519,21 @@ export const createCollectionmap = /* GraphQL */ `
           createdAt
           updatedAt
           collectionmapCollectionId
+          __typename
         }
         archives {
           nextToken
+          __typename
         }
         createdAt
         updatedAt
         collectionCollectionmapId
+        __typename
       }
       createdAt
       updatedAt
       collectionmapCollectionId
+      __typename
     }
   }
 `;
@@ -571,17 +590,21 @@ export const updateCollectionmap = /* GraphQL */ `
           createdAt
           updatedAt
           collectionmapCollectionId
+          __typename
         }
         archives {
           nextToken
+          __typename
         }
         createdAt
         updatedAt
         collectionCollectionmapId
+        __typename
       }
       createdAt
       updatedAt
       collectionmapCollectionId
+      __typename
     }
   }
 `;
@@ -638,17 +661,21 @@ export const deleteCollectionmap = /* GraphQL */ `
           createdAt
           updatedAt
           collectionmapCollectionId
+          __typename
         }
         archives {
           nextToken
+          __typename
         }
         createdAt
         updatedAt
         collectionCollectionmapId
+        __typename
       }
       createdAt
       updatedAt
       collectionmapCollectionId
+      __typename
     }
   }
 `;
@@ -681,10 +708,12 @@ export const createPageContent = /* GraphQL */ `
         siteTitle
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
       pageContentPageContentSiteIdId
+      __typename
     }
   }
 `;
@@ -717,10 +746,12 @@ export const updatePageContent = /* GraphQL */ `
         siteTitle
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
       pageContentPageContentSiteIdId
+      __typename
     }
   }
 `;
@@ -753,10 +784,12 @@ export const deletePageContent = /* GraphQL */ `
         siteTitle
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
       pageContentPageContentSiteIdId
+      __typename
     }
   }
 `;
@@ -860,18 +893,22 @@ export const createArchive = /* GraphQL */ `
           createdAt
           updatedAt
           collectionmapCollectionId
+          __typename
         }
         archives {
           nextToken
+          __typename
         }
         createdAt
         updatedAt
         collectionCollectionmapId
+        __typename
       }
       createdAt
       updatedAt
       collectionArchivesId
       archiveCollectionId
+      __typename
     }
   }
 `;
@@ -975,18 +1012,22 @@ export const updateArchive = /* GraphQL */ `
           createdAt
           updatedAt
           collectionmapCollectionId
+          __typename
         }
         archives {
           nextToken
+          __typename
         }
         createdAt
         updatedAt
         collectionCollectionmapId
+        __typename
       }
       createdAt
       updatedAt
       collectionArchivesId
       archiveCollectionId
+      __typename
     }
   }
 `;
@@ -1090,18 +1131,22 @@ export const deleteArchive = /* GraphQL */ `
           createdAt
           updatedAt
           collectionmapCollectionId
+          __typename
         }
         archives {
           nextToken
+          __typename
         }
         createdAt
         updatedAt
         collectionCollectionmapId
+        __typename
       }
       createdAt
       updatedAt
       collectionArchivesId
       archiveCollectionId
+      __typename
     }
   }
 `;
@@ -1119,6 +1164,7 @@ export const createEmbargo = /* GraphQL */ `
       record_type
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -1136,6 +1182,7 @@ export const updateEmbargo = /* GraphQL */ `
       record_type
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -1153,6 +1200,7 @@ export const deleteEmbargo = /* GraphQL */ `
       record_type
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -1181,6 +1229,7 @@ export const createSite = /* GraphQL */ `
       siteTitle
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -1209,6 +1258,7 @@ export const updateSite = /* GraphQL */ `
       siteTitle
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -1237,6 +1287,7 @@ export const deleteSite = /* GraphQL */ `
       siteTitle
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -1253,6 +1304,7 @@ export const createHistory = /* GraphQL */ `
       userEmail
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -1269,6 +1321,7 @@ export const updateHistory = /* GraphQL */ `
       userEmail
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -1285,6 +1338,7 @@ export const deleteHistory = /* GraphQL */ `
       userEmail
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
