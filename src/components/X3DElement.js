@@ -19,14 +19,14 @@ export default class X3DElement extends Component {
     this.setState({ url: this.props.url });
 
     const script = document.createElement("script");
-    script.src = "https://unpkg.com/x3dom/x3dom.js";
+    script.src = "https://img.cloud.lib.vt.edu/scripts/x3dom_1.8.4-dev.js";
     script.async = true;
     document.head.appendChild(script);
 
     const styles = document.createElement("link");
     styles.rel = "stylesheet";
     styles.type = "text/css";
-    styles.href = "https://unpkg.com/x3dom/x3dom.css";
+    styles.href = "https://img.cloud.lib.vt.edu/scripts/x3dom.css";
     document.head.appendChild(script);
   }
 
