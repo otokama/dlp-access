@@ -18,7 +18,7 @@ We also have a [Live Demo](https://vtdlp-demo.cloud.lib.vt.edu/) site.
   * [x3dom](https://www.x3dom.org/) viewer
 * Metadata management
   * Collection creation and editing
-  * Archive (Item) creation and editing
+  * Item creation and editing
 * Configurable Home page and menus
   * Cover image
   * Featured items
