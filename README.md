@@ -16,6 +16,9 @@ We also have a [Live Demo](https://vtdlp-demo.cloud.lib.vt.edu/) site.
   * [Mirador](https://projectmirador.org/) viewer
   * PDF viewer
   * [x3dom](https://www.x3dom.org/) viewer
+* Submission Information Packet, SIP -The submission information package is provided to the Virginia Tech Digital Library Platform and will be used for the AIP,   
+  Archival Information Package (AIP). The format, requirements, metadata, etc. of the SIP is listed in the link below.   The content provided to the VT-DLP must 
+  meet the requirements as established by the Virginia Tech Digital Library and detailed in the Virginia Tech Digital Library Preservation Plan.
 * Metadata management
   * Collection creation and editing
   * Item creation and editing
