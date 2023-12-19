@@ -173,4 +173,4 @@ If you plan to contribute new features, utility functions or extensions to the c
 To learn more about making a contribution, please see our [Contribution page](CONTRIBUTING.md).
 
 ## The Team
-DLP Access Website is currently maintained by [Yinlin Chen](https://github.com/yinlinchen), [Lee Hunter](https://github.com/whunter), [Tingting Jiang](https://github.com/tingtingjh), and [Andrea Waldren](https://github.com/andreaWaldren).
+DLP Access Website is currently maintained by [Lee Hunter](https://github.com/whunter), [Yangkai Lin], and [Astha Dhakal]
